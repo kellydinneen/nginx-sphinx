@@ -11,6 +11,10 @@ class FileManager {
   fileExists(path) {
     return fs.existsSync(path);
   }
+
+  readFile(path) {
+    return fs.readFileSync(path, {encoding:'utf8', flag:'r'})
+  }
 }
 
 module.exports = FileManager;
