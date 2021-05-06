@@ -8,6 +8,9 @@ class FileManager {
     this.destination = path.join(this.basePath, destinationPath);
   }
 
+  fileExists(path) {
+    return fs.existsSync(path);
+  }
 }
 
 module.exports = FileManager;
