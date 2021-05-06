@@ -4,7 +4,7 @@
   "description": "CLI utility to parse and query nginx access logs",
   "main": "index.js",
   "bin": {
-    "sphinx-my-nginx": "./index.js"
+    "nginx-sphinx": "./index.js"
   },
   "scripts": {
     "test": "mocha",
