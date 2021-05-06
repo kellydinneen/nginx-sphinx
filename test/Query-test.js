@@ -3,26 +3,26 @@ const expect = chai.expect;
 
 const Query = require('../src/Query');
 const Parser = require('../src/Parser');
-const logData = require('./dummy.log');
+const logData = require('./dummyData.js');
 
-console.log(logData);
+describe('Query', function() {
 
-describe('Log', function() {
-
-  const log = new Log(logData);
+  const query = new Query(logData);
 
   it('should be a function', function() {
-    expect(Log).to.be.a('function');
+    expect(Query).to.be.a('function');
   });
 
-  it('should be an instance of Log', function() {
-    expect(log).to.be.an.instanceof(Log);
+  it('should be an instance of Query', function() {
+    expect(query).to.be.an.instanceof(Query);
   });
 
-  it('should be able to parse source content into JSON', function() {
+  it('should be able to find top agent on given data', function() {
+    expect(query.getTopAgent(date)).to.equal(1);
   });
 
-  it('should store parsed log in destination file', function() {
+  it('should be able to find top request on given date', function() {
+    expect(query.getTopAgent(date)).to.equal(1);
   });
 
 });
