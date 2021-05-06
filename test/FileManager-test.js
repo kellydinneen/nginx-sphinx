@@ -40,4 +40,22 @@ describe('File Manager', function() {
     expect(happyFM.readFile(happySource)).to.have.string('Mozilla/5.0');
   });
 
+  it('should be able to create a new file', function() {
+    expect(happyFM.fileExists(happyDestination)).to.equal(false);
+
+    expect(happyFM.createDestinationFile(logData)).to.equal('success');
+    expect(happyFM.fileExists(happyDestination)).to.equal(true);
+  });
+
+  it('should be able to read JSON log and log should be accurately parsed', function() {
+    const log = happyFM.readFile(happyDestination);
+    expect(JSON.parse(log)).to.deep.equal(logData);
+
+    try {
+      fs.unlinkSync(happyDestination)
+    } catch(err) {
+      console.error(err)
+    }
+  });
+
 });
