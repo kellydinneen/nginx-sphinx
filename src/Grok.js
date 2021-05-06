@@ -1,26 +1,19 @@
 const grok = require('grok-js');
 
 class Grok {
-  constructor(p, string) {
-    this.pattern = patterns.createPattern(p);;
+  constructor(pattern) {
+    this.p = pattern;
   }
 
   grokString(string) {
-    grok.loadDefault((err, patterns) => {
-    if (err) {
+    try {
+      const patterns = grok.loadDefaultSync();
+      const pattern = patterns.createPattern(this.p);
+      return pattern.parseSync(string);
+    } catch (err) {
       console.error(err);
-      return;
     }
-
-    this.pattern.parse(string, (err, obj) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      return obj;
-    });
   }
-
 }
 
 module.exports = Grok;
