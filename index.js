@@ -4,6 +4,8 @@ var program = require('commander');
 
 program
   .version('0.0.1')
+  .name('nginx-sphinx')
+  .description('A CLI app to parse and query nginx access logs')
 
 program
   .command('parse <source log> <destination json file>')
