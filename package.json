@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "CLI utility to parse and query nginx access logs",
   "main": "index.js",
+  "bin": {
+    "sphinx": "./index.js"
+  },
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
