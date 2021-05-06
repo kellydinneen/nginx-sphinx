@@ -15,6 +15,14 @@ class FileManager {
   readFile(path) {
     return fs.readFileSync(path, {encoding:'utf8', flag:'r'})
   }
+
+  createDestinationFile(data) {
+    const log = JSON.stringify(data)
+    fs.writeFile(this.destination, log, function (err) {
+      if (err) return console.log(err);
+      return 'success';
+    });
+  }
 }
 
 module.exports = FileManager;
