@@ -15,6 +15,29 @@ describe('File Manager', function() {
   const sadSource = sadFM.source;
   const sadDestination = happyFM.destination;
 
+  it('should be a function', function() {
+    expect(FileManager).to.be.a('function');
+  });
 
+  it('should be an instance of FileManager', function() {
+    expect(happyFM).to.be.an.instanceof(FileManager);
+    expect(sadFM).to.be.an.instanceof(FileManager);
+  });
+
+  it('should know if a file does not exist', function() {
+    expect(sadFM.fileExists(sadSource)).to.equal(false);
+
+    expect(happyFM.fileExists(happyDestination)).to.equal(false);
+  });
+
+  it('should know if a file does exist', function() {
+    expect(happyFM.fileExists(happySource)).to.equal(true);
+
+    expect(happyFM.fileExists(happyDestination)).to.equal(true);
+  });
+
+  it('should be able to read a source file', function() {
+    expect(happyFM.readFile(happySource)).to.have.string('Mozilla/5.0');
+  });
 
 });
