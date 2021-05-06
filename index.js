@@ -6,7 +6,7 @@ program
   .version('0.0.1')
 
 program
-  .command('convert <source> <destination>')
+  .command('parse <source log> <destination json file>')
   .description('parse access log into JSON and store in new file')
   .action((source, destination) => {
      console.log('converting', source);
@@ -14,19 +14,15 @@ program
    });
 
 program
-  .command('top_agent <log> <date>')
-  .description('query top agent on specified date')
-  .action((log, date) => {
-     console.log('finding top agent in', log);
-     console.log('on', date);
-   });
-
-program
-  .command('top_call <log> <date>')
-  .description('query top method and path on specified date')
-  .action((log, date) => {
-     console.log('finding top call made in', log);
-     console.log('on', date);
-   });
+  .command('query <log> <date>')
+  .description('query top agent or request on specified date')
+  .requiredOption('-p, --param <agent or request>', 'query for top agent or top request')
+  .action((log, date, options, command) => {
+    if (options.debug) {
+      console.error('Called %s with options %o', command.log(), options);
+    }
+    const param = options.param ? `${options.param} ` : '';
+    console.log(`Searching for top ${param} in ${log} on ${date}`);
+  });
 
 program.parse(process.argv);
