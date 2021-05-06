@@ -20,7 +20,6 @@ class FileManager {
     const log = JSON.stringify(data)
     fs.writeFile(this.destination, log, function (err) {
       if (err) return console.log(err);
-      return 'success';
     });
   }
 }
