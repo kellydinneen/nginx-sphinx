@@ -29,6 +29,13 @@
  The project MVP was created as a technical exercise for an interview with Slalom Portland.
  A provided spec included sample data, functionality requirements, and a schema for the parsed nginx data.
  
+ ## Technologies
+ - Node.js
+ - Mocha and Chai
+ - Commander
+ - grok-js
+ - Chalk
+ 
  ## Intial Setup
  - clone down this repository (if you don't already have it)
  - `cd` into `nginx-sphinx` and run `npm install`
