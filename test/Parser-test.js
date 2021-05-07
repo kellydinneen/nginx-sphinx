@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const Parser = require('../src/Parser');
 const FileManager = require('../src/FileMAnager');
-const logData = require('./dummyData.js');
+const testJSON = require('./dummyJSON.json');
 
 describe('Parser', function() {
 
@@ -16,12 +16,12 @@ describe('Parser', function() {
     expect(Parser).to.be.a('function');
   });
 
-  it('should be an instance of Log', function() {
+  it('should be an instance of Parser', function() {
     expect(parser).to.be.an.instanceof(Parser);
   });
 
   it('should be able to parse source content into JSON', function() {
-    expect(parser.parseLog()).to.deep.equal(logData);
+    expect(parser.parseLog()).to.equal(JSON.stringify(testJSON));
   });
 
 });

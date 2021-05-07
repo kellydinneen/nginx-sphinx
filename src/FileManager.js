@@ -17,8 +17,7 @@ class FileManager {
   }
 
   createDestinationFile(data) {
-    const log = JSON.stringify(data)
-    fs.writeFile(this.destination, log, function (err) {
+    fs.writeFile(this.destination, data, function (err) {
       if (err) return console.log(err);
     });
   }
