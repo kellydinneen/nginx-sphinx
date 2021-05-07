@@ -38,6 +38,10 @@ Just type `nginx-sphinx` into the command line to see a list of commands and ass
 
 Additionally, for more detail, you can run `nginx-sphinx -help` or `nginx-sphinx -h`.
 
+<p align = "center">
+<img src="https://media.giphy.com/media/z1Xqaxq8mupqmc2cOH/giphy.gif">
+</p>
+
 ### convert a nginx log to JSON: `nginx-sphinx parse <source> <destination>`
 To convert a log file to a JSON file, run `nginx-sphinx parse <source> <destination>` where source is the filepath of the original log and destination is the desired filepath for the JSON.
 
@@ -49,13 +53,15 @@ Looks good 👍
 Entries from [source] have been successfully converted to JSON and stored in [destination]
 ```
 
+<p align = "center">
+<img src="https://media.giphy.com/media/JAAVvVZZKouciKeKFM/giphy.gif">
+</p>
+
 ### query the converted log: `nginx-sphinx query -param <query type> <log> <date>`
 To query for the agent with the most hists on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
 
 To query for the most popular HTTP method and path on a given day, use the same query but using `request` instead of `agent` as the parameter following `-p`.
 
-
-                                                                      
-
-
-
+<p align = "center">
+<img src="https://media.giphy.com/media/hMuaUYUiCMLYBQublR/giphy.gif">
+</p>
