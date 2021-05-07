@@ -47,7 +47,7 @@
 ### view all the commands and their descriptions: `nginx-sphinx`
 Just type `nginx-sphinx` into the command line to see a list of commands and associated options. Commands are displayed alongside their arguments, so if you're ready to leave this README behind you can use that command to find out everything you need to know about the app.
 
-Additionally, for more detail, you can run `nginx-sphinx -help` or `nginx-sphinx -h`.
+Additionally, for more detail, you can run `nginx-sphinx --help` or `nginx-sphinx --h`.
 
 <p align = "center">
 <img src="https://media.giphy.com/media/z1Xqaxq8mupqmc2cOH/giphy.gif">
@@ -68,7 +68,7 @@ Entries from [source] have been successfully converted to JSON and stored in [de
 <img src="https://media.giphy.com/media/9MIyNk3fyzWDuFVW78/giphy.gif">
 </p>
 
-### query the converted log: `nginx-sphinx query -param <query type> <log> <date>`
+### query the converted log: `nginx-sphinx query --param <query type> <log> <date>`
 To query for the agent with the most hists on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
 
 To query for the most popular HTTP method and path on a given day, use the same query but using `request` instead of `agent` as the parameter following `-p`.
