@@ -25,6 +25,10 @@
  ### that's right, a NGINX SPHINX!
  Give our sphinx your poor, your tired, and your access logs and she will parse and query them for you. You don't even have to solve any riddles.
  
+ ## Context
+ The project MVP was created as a technical exercise for an interview with Slalom Portland.
+ A provided spec included sample data, functionality requirements, and a schema for the parsed nginx data.
+ 
  ## Intial Setup
  - clone down this repository (if you don't already have it)
  - `cd` into `nginx-sphinx` and run `npm install`
@@ -77,3 +81,4 @@ Error handling can be made more robust for a variety of CLI input issues, and th
 
 ### Testing
 Unit tests can be made more thorough with additional threads of sad path testing. It would also be beneficial to look into testing for performance.
+
