@@ -3,6 +3,7 @@
 const helpers = require('./src/command-action-helpers.js');
 const sphinxImage = require('./assets/sphinx.js');
 const FileManager = require('./src/FileManager');
+const Query = require('./src/Query');
 
 var program = require('commander');
 program
@@ -15,7 +16,7 @@ program
   .command('parse <src> <destination>')
   .description('parse access log into JSON and store in specified file')
   .action((source, destination) => {
-     const fm = new FileManager(source, destination);
+     const fm = new FileManager(destination, source);
      if (helpers.sourceAndDestinationPathsAreValid(fm, source, destination)) {
        const log = fm.readFile(fm.source);
        helpers.parseLog(log, fm);
@@ -24,15 +25,15 @@ program
    });
 
 program
-  .command('query <log> <date>')
-  .description('query top agent or request on specified date')
-  .requiredOption('-p, --param <agent or request>', 'query for top agent or top request')
-  .action((log, date, options, command) => {
-    if (options.debug) {
-      console.error('Called %s with options %o', command.log(), options);
-    }
-    const param = options.param ? `${options.param} ` : '';
-    console.log(`Searching for top ${param} in ${log} on ${date}`);
+  .command('query <filepath> <date> ')
+  .description('Query for the top agent or request on specified date. Dates should be formatted day/month/year, e.g. 10/Nov/2020.')
+  .requiredOption('-p, --param <agent/request>', 'query for agent or request')
+  .action((path, date, options, command) => {
+    const param = options.param ? `${options.param}` : '';
+    const fm = new FileManager(path);
+    const log = JSON.parse(fm.readFile(fm.destination));
+    const result = new Query(log).getTopProperty(param, date)
+    helpers.announceQueryResult(param, date, result);
   });
 
 program.parse(process.argv);
