@@ -54,7 +54,7 @@ Entries from [source] have been successfully converted to JSON and stored in [de
 ```
 
 <p align = "center">
-<img src="https://media.giphy.com/media/JAAVvVZZKouciKeKFM/giphy.gif">
+<img src="https://media.giphy.com/media/0eBSCDex5bOr6tm18x/giphy.gif">
 </p>
 
 ### query the converted log: `nginx-sphinx query -param <query type> <log> <date>`
