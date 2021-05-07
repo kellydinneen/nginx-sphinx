@@ -14,7 +14,7 @@ program
     chalk.magenta.bold('A CLI app to parse and query nginx access logs'))
 
 program
-  .command(chalk.blueBright('parse <src> <destination>'))
+  .command('parse <src> <destination>')
   .description('parse access log into JSON and store in specified file')
   .action((source, destination) => {
      const fm = new FileManager(destination, source);
