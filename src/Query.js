@@ -3,8 +3,13 @@ class Query {
     this.log = log;
   }
 
-  getTopAgent(data) {
-    //return top agent + number of uses
+  validateDate(date) {
+    const entriesForDate = log.filter(e => e.requestTimestamp.startsWith(date));
+    return entriesForDate.length > 0;
+  }
+
+  getTopAgent(date) {
+    if (this.validateDate(date)) return 'invalid date';
   }
 
   getTopRequest(date) {
