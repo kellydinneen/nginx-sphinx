@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const helpers = require('./src/command-action-helpers.js');
+const FileManager = require('./src/FileManager');
+
 var program = require('commander');
 
 program
@@ -8,11 +11,15 @@ program
   .description('A CLI app to parse and query nginx access logs')
 
 program
-  .command('parse <source log> <destination json file>')
-  .description('parse access log into JSON and store in new file')
+  .command('parse <src> <destination>')
+  .description('parse access log into JSON and store in specified file')
   .action((source, destination) => {
-     console.log('converting', source);
-     console.log('to', destination);
+     const fm = new FileManager(source, destination);
+     if (helpers.sourceAndDestinationPathsAreValid(fm, source, destination)) {
+       const log = fm.readFile(fm.source);
+       helpers.parseLog(log, fm);
+       helpers.notifyUserOfSuccessfulParse(source, destination);
+     }
    });
 
 program
