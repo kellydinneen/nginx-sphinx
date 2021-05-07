@@ -5,7 +5,7 @@ const fs = require('fs');
 const FileManager = require('../src/FileManager');
 const logData = require('./dummyJSON.json');
 
-describe.only('File Manager', function() {
+describe('File Manager', function() {
 
   const happyFM = new FileManager('dummySource.log', 'dummyDestination.json');
   const happySource = happyFM.source;
