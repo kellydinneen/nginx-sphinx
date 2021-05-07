@@ -8,7 +8,7 @@ const testJSON = require('./dummyJSON.json');
 
 describe('Parser', function() {
 
-  const fm = new FileManager('dummySource.log', 'dummyDestination.json');
+  const fm = new FileManager('dummyDestination.json', 'dummySource.log');
   const log = fm.readFile(fm.source);
   const parser = new Parser(log);
 

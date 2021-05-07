@@ -5,7 +5,7 @@ const Grok = require('../src/Grok');
 
 describe('Grok', function() {
 
-  const pattern = '%{IP:ipAddress} - - \\[%{HTTPDATE:requestTimestamp}\\] "%{WORD:requestMethod} %{URIPATHPARAM:requestPath} HTTP/1.1" %{INT:requestStatus} %{INT:bytes} "%{DATA:mtag}" "%{DATA:userAgent}"';
+  const pattern = '%{IP:ipAddress} - - \\[%{HTTPDATE:requestTimestamp}\\] "%{WORD:requestMethod} %{URIPATHPARAM:requestPath} HTTP/1.1" %{INT:requestStatus} %{INT:bytes} "%{DATA:mtag}" "%{DATA:agent}"';
   const grok = new Grok(pattern);
 
   it('should be a function', function() {
@@ -27,7 +27,7 @@ describe('Grok', function() {
       requestStatus: '200',
       bytes: '1770',
       mtag: '-',
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
+      agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
     }
 
     expect(grok.grokString(string)).to.deep.equal(expectedOutput);

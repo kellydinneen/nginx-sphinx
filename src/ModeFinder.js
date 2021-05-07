@@ -6,7 +6,7 @@ class ModeFinder {
   }
 
   createFrequencyTable() {
-    const p = this.property;
+    const p = this.property
     let hash = {};
     this.array.forEach(e => {
       if (e[p] in hash){

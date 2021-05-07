@@ -7,11 +7,11 @@ const logData = require('./dummyJSON.json');
 
 describe('File Manager', function() {
 
-  const happyFM = new FileManager('dummySource.log', 'dummyDestination.json');
+  const happyFM = new FileManager('dummyDestination.json', 'dummySource.log');
   const happySource = happyFM.source;
   const happyDestination = happyFM.destination;
 
-  const sadFM = new FileManager('nonexistentFile.js', 'existingFile.json');
+  const sadFM = new FileManager('existingFile.json', 'nonexistentFile.js');
   const sadSource = sadFM.source;
   const sadDestination = sadFM.destination;
 

@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 class FileManager {
-  constructor(sourcePath, destinationPath) {
+  constructor(destinationPath, sourcePath = 'none') {
     this.basePath = process.cwd();
-    this.source = path.join(this.basePath, sourcePath);
     this.destination = path.join(this.basePath, destinationPath);
+    this.source = path.join(this.basePath, sourcePath);
   }
 
   fileExists(path) {
