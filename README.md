@@ -89,3 +89,9 @@ Error handling can be made more robust for a variety of CLI input issues, and th
 ### Testing
 Unit tests can be made more thorough with additional threads of sad path testing. It would also be beneficial to look into testing for performance.
 
+### Additional Features
+- parsing nginx error logs (or other varieties of logs)
+- additional query options (return total hits for every agent, total frequency for every HTTP method+path combo, date range of log, etc)
+- ability to update previously parsed logs with new data
+- enhanced `--help`section with a more complete description of each command and errors to look out for
+
