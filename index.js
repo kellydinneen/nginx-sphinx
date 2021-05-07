@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
 const helpers = require('./src/command-action-helpers.js');
+const sphinxImage = require('./assets/sphinx.js');
 const FileManager = require('./src/FileManager');
 
 var program = require('commander');
-
 program
   .version('0.0.1')
   .name('nginx-sphinx')
-  .description('A CLI app to parse and query nginx access logs')
+  .description(`${sphinxImage.sphinx}
+    A CLI app to parse and query nginx access logs`)
 
 program
   .command('parse <src> <destination>')
