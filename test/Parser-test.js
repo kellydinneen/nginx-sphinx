@@ -1,11 +1,15 @@
 const chai = require('chai');
 const expect = chai.expect;
+const fs = require('fs');
 
 const Parser = require('../src/Parser');
+const FileManager = require('../src/FileMAnager');
 const logData = require('./dummyData.js');
 
-describe('Log', function() {
+describe('Parser', function() {
 
+  const fm = new FileManager('dummySource.log', 'dummyDestination.json');
+  const log = fm.readFile(fm.source);
   const parser = new Parser(log);
 
   it('should be a function', function() {
@@ -17,7 +21,7 @@ describe('Log', function() {
   });
 
   it('should be able to parse source content into JSON', function() {
-    expect(parser.convertLog()).to.deep.equal(logData);
+    expect(parser.parseLog()).to.deep.equal(logData);
   });
 
 });
