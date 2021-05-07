@@ -45,4 +45,31 @@ describe.only('Query', function() {
     ]);
   });
 
+  it('should be able to find top request on given date', function() {
+    expect(happyQuery.getTopRequest(`10/Nov/2020`)).to.deep.equal([
+      {
+        request: "GET /about"",
+        hits: 2
+      }
+    ]);
+  });
+
+  it('should return an error if specified date for top request query is not included in log', function() {
+    expect(happyQuery.getTopRequest(`10/Nov/2022`)).to.equal('invalid date');
+    expect(happyQuery.getTopRequest(`20/Nov/2020`)).to.equal('invalid date');
+  });
+
+  it('should know if there is a tie between requests', function() {
+    expect(sadQuery.getTopRequest(`10/Nov/2022`)).to.deep.equal([
+      {
+        request: "GET /",
+        hits: 2
+      },
+      {
+        request: "POST /about",
+        hits: 2
+      }
+    ]);
+  });
+
 });
