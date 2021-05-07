@@ -49,7 +49,10 @@ Looks good 👍
 Entries from [source] have been successfully converted to JSON and stored in [destination]
 ```
 
-### query the converted log: `nginx-sphinx query -p <query type> <log> <date>`
+### query the converted log: `nginx-sphinx query -param <query type> <log> <date>`
+To query for the agent with the most hists on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
+
+To query for the most popular HTTP method and path on a given day, use the same query but using `request` instead of `agent` as the parameter following `-p`.
 
 
                                                                       
