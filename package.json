@@ -1,0 +1,34 @@
+{
+  "name": "nginx-sphinx",
+  "version": "1.0.0",
+  "description": "CLI utility to parse and query nginx access logs",
+  "main": "index.js",
+  "bin": {
+    "nginx-sphinx": "./index.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellydinneen/nginx-sphinx.git"
+  },
+  "keywords": [
+    "nginx"
+  ],
+  "author": "kelly dinneen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kellydinneen/nginx-sphinx/issues"
+  },
+  "homepage": "https://github.com/kellydinneen/nginx-sphinx#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.25.0",
+    "mocha": "^8.3.2"
+  }
+}
