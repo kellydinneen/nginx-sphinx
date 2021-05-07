@@ -38,6 +38,10 @@ Just type `nginx-sphinx` into the command line to see a list of commands and ass
 
 Additionally, for more detail, you can run `nginx-sphinx -help` or `nginx-sphinx -h`.
 
+<p align = "center">
+<img src="https://media.giphy.com/media/z1Xqaxq8mupqmc2cOH/giphy.gif">
+</p>
+
 ### convert a nginx log to JSON: `nginx-sphinx parse <source> <destination>`
 To convert a log file to a JSON file, run `nginx-sphinx parse <source> <destination>` where source is the filepath of the original log and destination is the desired filepath for the JSON.
 
@@ -49,13 +53,27 @@ Looks good 👍
 Entries from [source] have been successfully converted to JSON and stored in [destination]
 ```
 
+<p align = "center">
+<img src="https://media.giphy.com/media/9MIyNk3fyzWDuFVW78/giphy.gif">
+</p>
+
 ### query the converted log: `nginx-sphinx query -param <query type> <log> <date>`
 To query for the agent with the most hists on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
 
 To query for the most popular HTTP method and path on a given day, use the same query but using `request` instead of `agent` as the parameter following `-p`.
 
+<p align = "center">
+<img src="https://media.giphy.com/media/hMuaUYUiCMLYBQublR/giphy.gif">
+</p>
 
-                                                                      
 
+## Notes for Future Iterations
 
+### Improving performance
+The current parsing functionality uses a synchronous function from the `grok-js` npm module. This creates a bottleneck when parsing nginx logs into JSON so that longer logs can take several minutes to process. A first rpiority for the next iteration of this project is to debug an asynchronous implementation of parsing to speed this process.
 
+### Refining the UI
+Error handling can be made more robust for a variety of CLI input issues, and the handling of user arguments can be made more dynamic (e.g. to handle a variety of date inputs for queries). Additionally, the CLI styling can be further enhanced via the selection of a custom app color scheme. Ideally, some amount of user experience research should be undertaken with users of Nginx to ensure that the current command selection is aligned with user needs.
+
+## Testing
+Unit tests can be made more thorough with additional threads of sad path testing. It would also be beneficial to look into testing for performance.
