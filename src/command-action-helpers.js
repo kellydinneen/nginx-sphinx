@@ -25,8 +25,20 @@ const notifyUserOfSuccessfulParse = (source, destination) => {
   console.log(`Entries from ${source} have been successfully converted to JSON and stored in ${destination}`);
 }
 
+const announceQueryResult = (param, date, result) => {
+  if (result) {
+    const plural = typeof result.property === 'object';
+    console.log(`${plural ? 'We have a tie! ' : ''}The top ${param}${plural ? 's' : ''} on ${date} ${plural ? 'are' : 'is'}:`);
+    console.log(`→ ${result.property} ←`);
+    console.log(`with a frequency of ${result.frequency}`);
+  } else {
+    console.log(`Hmm, there doesn't seem to be a top ${param} on ${date}. Try another date or another log.`)
+  }
+}
+
 module.exports = {
   parseLog,
   sourceAndDestinationPathsAreValid,
-  notifyUserOfSuccessfulParse
+  notifyUserOfSuccessfulParse,
+  announceQueryResult
 }
