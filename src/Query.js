@@ -7,15 +7,17 @@ class Query {
   }
 
   filterLogByDate(date) {
-    this.entriesForDate = log.filter(e => e.requestTimestamp.startsWith(date));
+    this.entriesForDate = this.log.filter(e => e.requestTimestamp.startsWith(date));
     if (this.entriesForDate.length < 1) return false;
     return true;
   }
 
-  getTopProperty(property) {
+  getTopProperty(property, date) {
     if (!this.filterLogByDate(date)) return 'invalid date';
     if (property === 'request') {
-      this.entriesForDate = this.entriesForDate.map(e => {request: `${e.requestMethod} ${e.requestPath}`})
+      this.entriesForDate = this.entriesForDate.map(e => {
+        return {request: `${e.requestMethod} ${e.requestPath}`}
+      })
     }
     const finder = new ModeFinder(this.entriesForDate, property);
     finder.createFrequencyTable();
