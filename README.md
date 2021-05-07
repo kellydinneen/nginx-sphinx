@@ -75,5 +75,5 @@ The current parsing functionality uses a synchronous function from the `grok-js`
 ### Refining the UI
 Error handling can be made more robust for a variety of CLI input issues, and the handling of user arguments can be made more dynamic (e.g. to handle a variety of date inputs for queries). Additionally, the CLI styling can be further enhanced via the selection of a custom app color scheme. Ideally, some amount of user experience research should be undertaken with users of Nginx to ensure that the current command selection is aligned with user needs.
 
-##$ Testing
+### Testing
 Unit tests can be made more thorough with additional threads of sad path testing. It would also be beneficial to look into testing for performance.
