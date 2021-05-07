@@ -3,7 +3,7 @@ const expect = chai.expect;
 const fs = require('fs');
 
 const FileManager = require('../src/FileManager');
-const logData = require('./dummyData.js');
+const logData = require('./dummyJSON.json');
 
 describe.only('File Manager', function() {
 
@@ -42,7 +42,7 @@ describe.only('File Manager', function() {
   it('should be able to create a new file', async function() {
     expect(happyFM.fileExists(happyDestination)).to.equal(false);
 
-    await happyFM.createDestinationFile(logData);
+    await happyFM.createDestinationFile(JSON.stringify(logData));
 
     expect(happyFM.fileExists(happyDestination)).to.equal(true);
   });
