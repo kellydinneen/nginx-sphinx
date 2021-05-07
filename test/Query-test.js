@@ -3,10 +3,10 @@ const expect = chai.expect;
 
 const Query = require('../src/Query');
 const Parser = require('../src/Parser');
-const logData = require('./dummyData.js');
+const logData = require('./dummyLogData.js');
 
 describe('Query', function() {
-
+  console.log(logData.log);
   const happyQuery = new Query(logData.log);
   const sadQuery = new Query(logData.logWithoutTopAgentOrRequest);
 
