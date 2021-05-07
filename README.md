@@ -1,4 +1,4 @@
-# nginx-sphinx
+
 
 
 
@@ -21,8 +21,9 @@
              ▗▄▟████▚██▛▞▘▘▝█▄██▄                  ▝▜██▙         ▜██  
           ▗▄███████▚▀▀▘       ▀██▙▖                 ▗██▛         ▝██  
         ▗▟█████▀▀▘              ▜██               ▗▟█▛▘           ██  
-   ▄███▄███▀▀                ▗▞████▌        ▗▛▛████▛▘        ▗█████▛  
-  ▝▘▘▀▀▀▀                    ▀▀▘▀▀▀▘        ▀▝▝▀▀▀           ▀▝▝▀▀▀   
+ # What do you get when you combine a Node.js CLI and a Sphinx?
+ ### that's right, a NGINX parser!
+ nginx-sphinx will parse and query your access logs straight from the command line
                                                                       
 
 
