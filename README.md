@@ -69,7 +69,7 @@ Entries from [source] have been successfully converted to JSON and stored in [de
 </p>
 
 ### query the converted log: `nginx-sphinx query --param <query type> <log> <date>`
-To query for the agent with the most hists on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
+To query for the agent with the most hits on a given day, run `nginx-sphinx query -p agent <log> <date>` where `log` is the filepath of a parsed nginx log and the data is formatted `[day]/[month]/[year]`, e.g. `10/Nov/2020`.
 
 To query for the most popular HTTP method and path on a given day, use the same query but using `request` instead of `agent` as the parameter following `-p`.
 
@@ -89,9 +89,9 @@ Error handling can be made more robust for a variety of CLI input issues, and th
 ### Testing
 Unit tests can be made more thorough with additional threads of sad path testing. It would also be beneficial to look into testing for performance.
 
-### Additional Features
+### More Features
 - parsing nginx error logs (or other varieties of logs)
-- additional query options (return total hits for every agent, total frequency for every HTTP method+path combo, date range of log, etc)
+- more query options (return total hits for every agent, total frequency for every HTTP method+path combo, date range of log, etc)
 - ability to update previously parsed logs with new data
 - enhanced `--help`section with a more complete description of each command and errors to look out for
 - this app could be directly integrated with the Nginx API so that user logs could stream directly into the parser and the user could bypass reference to a log source file
