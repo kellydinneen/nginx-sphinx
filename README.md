@@ -80,8 +80,8 @@ To query for the most popular HTTP method and path on a given day, use the same 
 
 ## Notes for Future Iterations
 
-### Improving performance
-The current parsing functionality uses a synchronous function from the `grok-js` npm module. This creates a bottleneck when parsing nginx logs into JSON so that longer logs can take several minutes to process. A first priority for the next iteration of this project is to debug an asynchronous implementation of parsing to speed this process. Alternatively, and perhaps optimally, [Node streams](https://nodejs.org/api/stream.html) can be researched and implemented so that reading of source file, parsing, and writing of JSON file can happen in parallel.
+### Improve Resilience of Parsing Functionality 
+To solve performance issues caused by the synchronous use of regular expressions, a simpler parsing logic was implemented using basic string and array methods. This makes the app sufficiently fast, but the parsing funtionality is no longer dynamic enough to handle even slight changes in the format of the incoming logs. To improve the resilience of the app, a next iteration of this project could return to the use of regex in combination with [Node streams](https://nodejs.org/api/stream.html), so that reading of source file, parsing, and writing of JSON file can happen in parallel.
 
 ### Refining the UI
 Error handling can be made more robust for a variety of CLI input issues, and the handling of user arguments can be made more dynamic (e.g. to handle a variety of date inputs for queries). Additionally, the CLI styling can be further enhanced via the selection of a custom app color scheme. Ideally, some amount of user experience research should be undertaken with users of Nginx to ensure that the current command selection is aligned with user needs.
