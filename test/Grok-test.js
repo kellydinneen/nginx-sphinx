@@ -25,8 +25,6 @@ describe('Grok', function() {
       requestMethod: 'GET',
       requestPath: '/',
       requestStatus: '200',
-      bytes: '1770',
-      mtag: '-',
       agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
     }
 

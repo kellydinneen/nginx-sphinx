@@ -10,11 +10,6 @@ class Parser {
     const entries = this.sourceData.split(/\n/).filter(entry => entry !== '');
     const lineParser = new Grok(this.pattern);
     const transformedData = entries.map(entry => lineParser.grokString(entry))
-      .map(e => {
-        delete e.mtag;
-        delete e.bytes;
-        return e;
-      });
     return JSON.stringify(transformedData);
   }
 }
