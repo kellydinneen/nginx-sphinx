@@ -28,7 +28,9 @@ const notifyUserOfSuccessfulParse = (source, destination) => {
 }
 
 const announceQueryResult = (param, date, result) => {
-  if (result) {
+  if (result === 'invalid date') {
+    console.log(chalk.redBright.bold('Whoops! ') + `This log has no entries on ${date}. Try another date, or check to make sure your date is formatted correctly.`)
+  } else if (result) {
     const plural = typeof result.property === 'object';
     console.log(`${plural ? chalk.yellowBright.bold('We have a tie! ') : ''}The top ${param}${plural ? 's' : ''} on ${chalk.yellowBright.bold(date)} ${plural ? 'are' : 'is'}:`);
     console.log(chalk.yellowBright.bold(`→ ${result.property} ←`));
