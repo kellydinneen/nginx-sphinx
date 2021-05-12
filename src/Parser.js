@@ -8,8 +8,8 @@ class Parser {
 
   parseLog() {
     const entries = this.sourceData.split(/\n/).filter(entry => entry !== '');
-    const lineParser = new Grok(this.pattern);
-    const transformedData = entries.map(entry => lineParser.grokString(entry))
+    const lineParser = new Grok(entries);
+    const transformedData = lineParser.grokEntries();
     return JSON.stringify(transformedData);
   }
 }

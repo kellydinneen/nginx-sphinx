@@ -1,26 +1,27 @@
 // const grok = require('grok-js');
 
 class Grok {
-  constructor() {
-    this.schema = {
-      ipAddress: '',
-      requestTimestamp: '',
-      requestMethod: '',
-      requestPath: '',
-      requestStatus: '',
-      agent: ''
-    };
+  constructor(log) {
+    this.log = log;
+    this.grokked = [];
+  }
+
+  grokEntries() {
+    let entries =[];
+    this.log.forEach(e => entries.push(this.grokString(e)))
+    return entries;
   }
 
   grokString(string) {
+    let entry = {}
     const split = string.split(' ');
-    this.schema.ipAddress = split[0];
-    this.schema.requestTimestamp = split[3].slice(1) + ' ' + split[4].slice(0, split[4].length - 1);
-    this.schema.requestMethod = split[5].slice(1);
-    this.schema.requestPath = split[6];
-    this.schema.requestStatus = split[8];
-    this.schema.agent = this.grokAgent(split);
-    return this.schema;
+    entry.ipAddress = split[0];
+    entry.requestTimestamp = split[3].slice(1) + ' ' + split[4].slice(0, split[4].length - 1);
+    entry.requestMethod = split[5].slice(1);
+    entry.requestPath = split[6];
+    entry.requestStatus = split[8];
+    entry.agent = this.grokAgent(split);
+    return entry;
   }
 
   grokAgent(agentParts) {
@@ -33,7 +34,7 @@ class Grok {
     });
     return agent.slice(1, agent.length - 1)
   }
-  
+
 }
 
 module.exports = Grok;
