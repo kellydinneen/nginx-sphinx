@@ -28,7 +28,9 @@ const notifyUserOfSuccessfulParse = (source, destination) => {
 }
 
 const announceQueryResult = (param, date, result) => {
-  if (result === 'invalid date') {
+  if (date.length < 11) {
+    console.log(chalk.red.bold("Oops. ") + "That date doesn't seem to be formatted correctly. Try again. Your date should be written DD/Month-Abbreviation/YYYY, e.g. 01/Nov/2020" )
+  } else if (result === 'invalid date') {
     console.log(chalk.redBright.bold('Whoops! ') + `This log has no entries on ${date}. Try another date, or check to make sure your date is formatted correctly.`)
   } else if (result) {
     const plural = typeof result.property === 'object';
