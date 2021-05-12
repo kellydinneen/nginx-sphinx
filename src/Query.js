@@ -13,7 +13,7 @@ class Query {
   }
 
   getTopProperty(property, date) {
-    if (!this.filterLogByDate(date).length) return 'invalid date';
+    if (!this.filterLogByDate(date)) return 'invalid date';
     if (property === 'request') {
       this.entriesForDate = this.entriesForDate.map(e => {
         return {request: `${e.requestMethod} ${e.requestPath}`}
