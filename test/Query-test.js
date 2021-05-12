@@ -5,7 +5,7 @@ const Query = require('../src/Query');
 const Parser = require('../src/Parser');
 const logData = require('./dummyLogData.js');
 
-describe.only('Query', function() {
+describe('Query', function() {
   const happyQuery = new Query(logData.log);
   const sadQuery = new Query(logData.logWithoutTopAgentOrRequest);
 
