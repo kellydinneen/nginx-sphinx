@@ -30,11 +30,10 @@
  A provided spec included sample data, functionality requirements, and a schema for the parsed nginx data.
  
  ## Technologies
- - Node.js
- - Mocha and Chai
- - Commander
- - grok-js
- - Chalk
+ - `Node.js`
+ - `Mocha` and `Chai`
+ - `Commander`
+ - `Chalk`
  
  ## Intial Setup
  - clone down this repository (if you don't already have it)
